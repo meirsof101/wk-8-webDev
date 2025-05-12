@@ -3,8 +3,8 @@
 javascript
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById("navLinks");
-    const showMenuIcon = document.querySelector(".fa-bars");
-    const hideMenuIcon = document.querySelector(".fa-times");
+    const showMenu = document.getElementById("showMenu") || document.querySelector(".fa-bars");
+    const hideMenu = document.getElementById("hideMenu") || document.querySelector(".fa-times");
     const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
     const cartCountSpan = document.getElementById("cart-count");
     const quantityInputs = document.querySelectorAll(".qty-input");
@@ -15,30 +15,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cartItemCount = 0;
 
+      
     // Function to show the mobile menu
-  
-    function showMenu() {
-        navLinks.classList.add("active");
+    if (showMenu) {
+        showMenu.addEventListener('click', function() {
+            navLinks.style.right = "0";
+            navLinks.classList.add("active");
+        });
     }
-
+    
     // Function to hide the mobile menu
-    function hideMenu() {
-        navLinks.classList.remove("active");
+      if (hideMenu) {
+        hideMenu.addEventListener('click', function() {
+            navLinks.style.right = "-250px";
+            navLinks.classList.remove("active");
+        });
     }
-
-    // Event listeners for mobile menu toggle
+ // Close menu when clicking on a menu item (optional but recommended)
+    const menuLinks = document.querySelectorAll(".nav-links ul li a");
+    menuLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                navLinks.style.right = "-250px";
+                navLinks.classList.remove("active");
+            }
+        });
+    // Add event listeners to the menu icons
     if (showMenuIcon) {
-        showMenuIcon.addEventListener('click', showMenu);
+        showMenuIcon.addEventListener('click', function() {
+            console.log("Menu icon clicked"); // Debug message
+            showMenu();
+        });
+    } else {
+        console.log("Menu icon not found!"); // Debug message
     }
-
+    
     if (hideMenuIcon) {
-        hideMenuIcon.addEventListener('click', hideMenu);
+        hideMenuIcon.addEventListener('click', function() {
+            console.log("Close icon clicked"); // Debug message
+            hideMenu();
+        });
+    } else {
+        console.log("Close icon not found!"); // Debug message
     }
-
-    // Function to update the cart count
-    function updateCartCount() {
-        cartCountSpan.textContent = cartItemCount;
-    }
+    
+    // Check if menu is working initially
+    console.log("Menu script loaded. navLinks element:", navLinks);
+});
 
     // Event listener for "Add to Cart" buttons
     addToCartButtons.forEach(button => {
@@ -88,7 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     });
-});
 
 // <!-- JavaScript for Seedlings Filter -->
   document.addEventListener('DOMContentLoaded', function() {

@@ -1,0 +1,413 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1b5e20;
+  padding: 10px 20px;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  transition: background 0.3s ease;
+}
+
+.nav-links ul li a:hover {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon span#cart-count {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+.fa-bars,
+.fa-times {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    right: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: #1f1f1f;
+    width: 200px;
+    transition: right 0.3s ease;
+    padding: 20px;
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav-links.show {
+    right: 0;
+  }
+
+  .fa-bars,
+  .fa-times {
+    display: block;
+  }
+}
+
+
+/* Contact Form Container */
+.contact-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-container h1 {
+  color: #2e7d32;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* Form Styles */
+.contact-form {
+  display: grid;
+  gap: 20px;
+}
+
+.contact-form label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.contact-form label span {
+  color: #e53935;
+  margin-left: 2px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #2e7d32;
+  outline: none;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-weight: normal;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: auto;
+  margin-top: 3px;
+}
+
+.contact-form button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.contact-form button:hover {
+  background-color: #1b5e20;
+}
+
+/* Newsletter Section */
+.newsletter {
+  background-color: #f8f9fa;
+  padding: 60px 0;
+}
+
+.newsletter-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.newsletter h2 {
+  color: #2e7d32;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.newsletter p {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.newsletter-form {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
+}
+
+.newsletter-form button {
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #1b5e20;
+}
+
+/* Socials Section */
+.socials {
+  background-color: #f1f8e9;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.socials h3 {
+  color: #2e7d32;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.socials ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-socials {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: #2e7d32;
+  color: white;
+  border-radius: 50%;
+  font-size: 22px;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #1b5e20;
+  transform: translateY(-3px);
+}
+
+/* Footer Section */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .contact-container {
+    padding: 30px 20px;
+    margin: 30px 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    background: #fff;
+    height: 100vh;
+    width: 250px;
+    top: 0;
+    right: -250px;
+    text-align: left;
+    z-index: 2;
+    transition: 0.5s;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .nav-links ul li {
+    margin: 12px 0;
+  }
+
+  .fa-bars {
+    display: block;
+  }
+
+  .fa-times {
+    display: block;
+    margin: 15px;
+    text-align: right;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .newsletter-form input[type="email"] {
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .newsletter-form button {
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .social-icons {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .social-icons a {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-container h1 {
+    font-size: 28px;
+  }
+  
+  .newsletter h2 {
+    font-size: 28px;
+  }
+  
+  .socials h3 {
+    font-size: 22px;
+  }
+  
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+/* JavaScript Classes for Mobile Menu Toggle */
+.nav-active {
+  right: 0;
+}
